@@ -5,12 +5,10 @@
 
 </div>
 
- This project provides a configuration file with the essential settings for deploying Portainer and Portainer Agent using Docker Compose.
+This project provides a configuration file with the essential settings for deploying Portainer and Portainer Agent using Docker Compose.
 
 
 ## Configuration
-
----
 
 The `docker-compose.yml` file contains the following services:
 
@@ -20,7 +18,6 @@ The `docker-compose.yml` file contains the following services:
 
 ## Usage
 
----
 1.  Clone the repository:
       
     ```shell
@@ -41,12 +38,8 @@ The `docker-compose.yml` file contains the following services:
 
 ## Disclaimer
 
----
-
 Any trademarks, names, logos, icons, or other intellectual property displayed or referenced in this repository are the exclusive property of their respective owners. The inclusion or mention of such trademarks, names, logos, icons, or other intellectual property in no way implies any form of affiliation, endorsement, sponsorship, or support.
 
 ## License
-
----
 
 This project is licensed under the [MIT License](https://github.com/aviolaris/dockerized-portainer-with-agent/blob/main/LICENSE).

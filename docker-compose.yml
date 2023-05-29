@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+
+  # Agent service configuration
+  agent:
+    # Use the portainer/agent Docker image
+    image: portainer/agent
+    volumes:
+      # Mount the host's Docker socket into the container
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mount the host's Docker volumes into the container
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+
+  # Portainer service configuration
+  portainer:
+    # Use the portainer/portainer-ce Docker image
+    image: portainer/portainer-ce
+    # Specify the command for the container
+    command: -H tcp://agent:9001 --tlsskipverify
+    # Publish the container's port 9000 to the host's port 9000
+    ports:
+      - "9000:9000"
+    volumes:
+      # Mount the host's Docker socket into the container
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Create a named volume for persistent Portainer data storage
+      - portainer_data:/data
+    # Wait for the agent service to be ready
+    depends_on:
+      - agent
+
+volumes:
+  # Volume for Portainer data persistence
+  portainer_data:
